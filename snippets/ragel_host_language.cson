@@ -1,0 +1,46 @@
+'.source.ragel :not(.embedded-ragel)':
+  'define a full machine':
+    # this can be used by pressing tab but won't appear in autocomplete yet :(
+    # https://github.com/atom/autocomplete-snippets/issues/67
+    # https://github.com/atom/autocomplete-snippets/issues/56
+    prefix: '%%'
+    body:  '''
+      %%{
+        machine ${1:machine_label};
+
+        main := |*
+          $2
+        *|;
+      }%%
+    '''
+  'write data - puts data needed for the machine here':
+    prefix: '%% wd'
+    body: '%% write data;$1'
+  'write init - puts machine initialization code here':
+    prefix: '%% wi'
+    body: '%% write init;$1'
+  'write exec - puts machine execution code here':
+    prefix: '%% we'
+    body: '%% write exec;$1'
+
+  'fbreak - break out of the execute loop':
+    prefix: 'fbreak'
+    body: 'fbreak;$1'
+  'fcall - push target state and jump to given entry point':
+    prefix: 'fcall'
+    body: 'fcall ${1:entry_point};$2'
+  'fexec - set the next character to process':
+    prefix: 'fexec'
+    body: 'fexec ${1:entry_point};$2'
+  'fgoto - jump to the given entry point':
+    prefix: 'fgoto'
+    body: 'fgoto ${1:entry_point};$2'
+  'fhold - do not advance beyond current char':
+    prefix: 'fhold'
+    body: 'fhold;$1'
+  'fnext - set the next state to be the given entry point':
+    prefix: 'fnext'
+    body: 'fnext ${1:entry_point};$2'
+  'fret - return to the fcall origin':
+    prefix: 'fret'
+    body: 'fret;$1'

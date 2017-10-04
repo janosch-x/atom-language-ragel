@@ -1,0 +1,36 @@
+'.source.ragel.embedded-ragel':
+  'name the machine':
+    prefix: 'machine'
+    body: 'machine ${1:machine_label};$2'
+  'instantiate a machine':
+    prefix: ':='
+    body: '''
+      := |*
+        $1
+      *|;
+    '''
+
+  'write data - puts data needed for the machine here':
+    prefix: 'wd'
+    body: 'write data;$1'
+  'write init - puts machine initialization code here':
+    prefix: 'wi'
+    body: 'write init;$1'
+  'write exec - puts machine execution code here':
+    prefix: 'we'
+    body: 'write exec;$1'
+
+  'include another Ragel file':
+    prefix: 'include'
+    body: 'include ${1:machine_label} "${2:filename}";$3'
+  'import definitions':
+    prefix: 'import'
+    body: 'import "${1:filename}";$2'
+
+  'define an action':
+    prefix: 'action'
+    body: '''
+      action ${1:action_name} {
+        $2
+      }
+    '''

@@ -1,0 +1,13 @@
+*.iml
+*.stTheme.cache
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.tmlanguage.cache
+*.tmPreferences.cache
+*~
+.DS_Store
+.idea/
+.tags
+.tags1
+tmp/*

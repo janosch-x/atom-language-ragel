@@ -1,0 +1,20 @@
+'.source.ragel':
+  editor:
+    commentStart: '# '
+    increaseIndentPattern: '''
+      (?x)
+        \\{ [^}]* $        # opening bracket and anything except closing bracket
+      | \\{ \\s* \\# .* $  # opening bracket followed by any comment
+    '''
+    decreaseIndentPattern: '''
+      (?x)
+      ^ \\s* \\}           # closing bracket on own line
+    '''
+  'bracket-matcher':
+    autocompleteCharacters: [
+      '()'
+      '[]'
+      '{}'
+      '""'
+      "''"
+    ]
