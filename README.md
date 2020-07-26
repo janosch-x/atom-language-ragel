@@ -1,4 +1,4 @@
-# Ragel language support in Atom
+# [UNMAINTAINED] Ragel language support in Atom
 
 This package adds syntax highlighting and snippets to [Ragel](http://www.colm.net/open-source/ragel/) files in the [Atom text editor](http://atom.io/).
 
